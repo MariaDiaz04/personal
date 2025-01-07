@@ -268,8 +268,22 @@ h6 {
   height: 100vh;
   background: url("../img/hero-bg.jpg") top right no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   position: relative;
 }
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+  #hero {
+    background: url("../img/hero-bg.jpg") center center no-repeat;
+    background-size: contain; /* Ajusta la imagen sin recortarla */
+    background-attachment: scroll; /* Cambia a scroll para evitar problemas en móviles */
+    height: auto; /* Permite que el contenedor ajuste su altura automáticamente */
+    padding: 50px 20px; /* Añade relleno para un diseño más cómodo */
+  }
+}
+
+
 
 @media (min-width: 992px) {
   #hero {
