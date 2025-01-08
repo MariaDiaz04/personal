@@ -1,0 +1,27 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Cambia 'main' a la rama donde realizas el push si es diferente.
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Cambia a la versión de Node.js que uses, si aplica.
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages  # Cambia a la rama que utilizas para GitHub Pages.
+        folder: build      # Carpeta donde se generan los archivos estáticos (ajusta según tu proyecto).
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
